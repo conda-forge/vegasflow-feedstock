@@ -19,7 +19,7 @@ conda-build:
 
 CONDARC
 
-conda install --yes --quiet conda-forge-ci-setup=3 conda-build pip -c conda-forge
+conda install --yes --quiet conda-forge-ci-setup=2 conda-build pip -c conda-forge
 
 # set up the condarc
 setup_conda_rc "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
@@ -32,7 +32,7 @@ make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 conda build "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
     --suppress-variables \
     --clobber-file "${CI_SUPPORT}/clobber_${CONFIG}.yaml"
-validate_recipe_outputs "${FEEDSTOCK_NAME}"
+# validate_recipe_outputs "${FEEDSTOCK_NAME}"
 
 if [[ "${UPLOAD_PACKAGES}" != "False" ]]; then
     upload_package --validate --feedstock-name="${FEEDSTOCK_NAME}"  "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
