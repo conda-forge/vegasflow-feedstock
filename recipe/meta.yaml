@@ -1,25 +1,25 @@
 {% set name = "vegasflow" %}
-{% set version = "1.0.2" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/N3PDF/vegasflow/archive/v.{{version}}.tar.gz
-  sha256: 8f39970a9a20551044ce777f9c38ed8873fde918b390f66739c92380fe333234
+  url: https://github.com/N3PDF/vegasflow/archive/v{{ version }}.tar.gz
+  sha256: 61dd0bd3727451528162c9c6066c66b8e48db824a45ce1f72f1d5cd3117029a4
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
   host:
-    - python >=3.6,<3.8
+    - python >=3.6
     - pip
   run:
-    - python >=3.6,<3.8
+    - python >=3.6
     - tensorflow >=2.0.0
     - joblib
     - numpy
@@ -37,7 +37,7 @@ about:
   license: GPL-3.0
   license_family: GPL
   license_file: LICENSE
-  summary: "VegasFlow: accelerating Monte Carlo simulation across multiple hardware platforms"
+  summary: 'VegasFlow: accelerating Monte Carlo simulation across multiple hardware platforms'
 
 extra:
   recipe-maintainers:
