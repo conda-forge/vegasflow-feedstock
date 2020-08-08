@@ -6,8 +6,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/N3PDF/vegasflow/archive/v.{{ version }}.tar.gz
-  sha256: 5ac801c1eed20870f15b3fb732470fa60b4fa08e847914e127ddd23d55d6f1cc
+  url: https://github.com/N3PDF/vegasflow/archive/v{{ version }}.tar.gz
+  sha256: 61dd0bd3727451528162c9c6066c66b8e48db824a45ce1f72f1d5cd3117029a4
 
 build:
   number: 0
@@ -16,10 +16,10 @@ build:
 
 requirements:
   host:
-    - python >=3.6,<3.8
+    - python >=3.6
     - pip
   run:
-    - python >=3.6,<3.8
+    - python >=3.6
     - tensorflow >=2.0.0
     - joblib
     - numpy

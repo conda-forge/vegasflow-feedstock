@@ -12,6 +12,9 @@ export RECIPE_ROOT="${RECIPE_ROOT:-/home/conda/recipe_root}"
 export CI_SUPPORT="${FEEDSTOCK_ROOT}/.ci_support"
 export CONFIG_FILE="${CI_SUPPORT}/${CONFIG}.yaml"
 
+# Unused, but needed by conda-build currently... :(
+export CONDA_NPY='19'
+
 cat >~/.condarc <<CONDARC
 
 conda-build:
@@ -19,12 +22,17 @@ conda-build:
 
 CONDARC
 
-conda install --yes --quiet conda-forge-ci-setup=3 conda-build pip -c conda-forge
+conda install --yes --quiet "conda>4.7.12" conda-forge-ci-setup=3 conda-forge-pinning conda-build pip -c conda-forge
 
 # set up the condarc
 setup_conda_rc "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 
 source run_conda_forge_build_setup
+
+# set channel priority not strict
+# tensorflow in conda-forge is 1.14, so strict channel priority breaks everything...
+conda config --set channel_priority flexible
+
 
 # make the build number clobber
 make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
