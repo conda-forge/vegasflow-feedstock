@@ -5,7 +5,7 @@ Home: https://github.com/N3PDF/vegasflow
 
 Package license: GPL-3.0
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: VegasFlow: accelerating Monte Carlo simulation across multiple hardware platforms
 
