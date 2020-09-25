@@ -26,15 +26,11 @@ setup_conda_rc "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 
 source run_conda_forge_build_setup
 
-# set channel priority not strict
-# tensorflow in conda-forge is 1.14, so strict channel priority breaks everything...
-conda config --set channel_priority flexible
-
 # make the build number clobber
 make_build_number "${FEEDSTOCK_ROOT}" "${RECIPE_ROOT}" "${CONFIG_FILE}"
 
 conda build "${RECIPE_ROOT}" -m "${CI_SUPPORT}/${CONFIG}.yaml" \
-    --suppress-variables \
+    --suppress-variables ${EXTRA_CB_OPTIONS:-} \
     --clobber-file "${CI_SUPPORT}/clobber_${CONFIG}.yaml"
 validate_recipe_outputs "${FEEDSTOCK_NAME}"
 
