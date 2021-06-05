@@ -1,5 +1,5 @@
 {% set name = "vegasflow" %}
-{% set version = "1.2.0" %}
+{% set version = "1.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/N3PDF/vegasflow/archive/v{{ version }}.tar.gz
-  sha256: a546b5bc323e7cda4931e67568a4ad539bcf26d4efb3f569120484a2b04b63bf
+  sha256: 03df6d6ab82b2e737b2277b2e91b8dba1235df1ef84fa799adb1d12ece55fef6
 
 build:
   number: 0
