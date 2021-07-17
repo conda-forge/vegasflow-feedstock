@@ -34,8 +34,8 @@ test:
 
 about:
   home: https://github.com/N3PDF/vegasflow
-  license: GPL-3.0
-  license_family: GPL
+  license: Apache-2.0
+  license_family: APACHE
   license_file: LICENSE
   summary: 'VegasFlow: accelerating Monte Carlo simulation across multiple hardware platforms'
 
