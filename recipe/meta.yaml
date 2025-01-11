@@ -10,16 +10,16 @@ source:
   sha256: 1140d0243b9ada6ebc5c6f11c617d1c0cbfefa5e24d5f23a48fb1e55f565ae1a
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   noarch: python
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - tensorflow >=2.0.0
     - joblib
     - numpy
@@ -29,6 +29,7 @@ test:
     - vegasflow
   requires:
     - pytest
+    - python {{ python_min }}
   commands:
     - pytest --pyargs vegasflow
 
